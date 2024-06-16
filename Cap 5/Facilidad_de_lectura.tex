@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{listings} % Para incluir código fuente
+\usepackage{xcolor}   % Para definir colores personalizados
+\usepackage{hyperref} % Para los enlaces URL
+\title{Facilidad de Comprension en Ingenieria de Software}
+\author{Lindell Dennis Vilca Mamani}
+\date{} % Elimino la fecha para que no aparezca en el documento
+
+\begin{document}
+\maketitle
+
+La facilidad de comprension en el contexto de la ingenieria de software se refiere a la capacidad de entender y asimilar rapidamente el codigo fuente o la documentacion de un programa. A continuacion, te proporciono informacion sobre este tema:
+
+\section*{Definicion de Facilidad de Comprension:}
+La comprension de codigo fuente es fundamental para actividades como revision de codigo, correccion de defectos y refactorizacion. Se busca lograr un software que sea facil de entender y mantener \cite{tesis_unal}.
+
+\section*{Metricas de Facilidad de Comprension:}
+Algunas metricas evaluan la legibilidad y complejidad del codigo:
+\begin{itemize}
+  \item Numero de lineas: Cuantas lineas de codigo tiene un programa.
+  \item Metricas de Halstead: Evaluan la complejidad del programa basandose en operadores y operandos.
+  \item Numero ciclomatico: Mide la complejidad estructural del codigo.
+  \item Intervalo entre referencias a datos: Evalua la distancia entre las referencias a variables.
+  \item Par de uso segmento-global: Mide la relacion entre variables locales y globales \cite{libro_metrics}.
+\end{itemize}
+
+\section*{Aplicaciones:}
+La facilidad de comprension es crucial para:
+\begin{itemize}
+  \item Revision de codigo: Facilita la deteccion de errores.
+  \item Mantenibilidad: Un codigo comprensible es mas facil de mantener.
+  \item Refactorizacion: Permite mejorar la calidad del codigo.
+  \item Desarrollo colaborativo: Ayuda a los equipos a trabajar eficientemente \cite{tesis_espoch}.
+\end{itemize}
+
+\section*{Limitaciones:}
+\begin{itemize}
+  \item A pesar de las metricas, la comprension sigue siendo subjetiva y depende de la experiencia del desarrollador.
+  \item No todas las metricas son aplicables en todos los contextos.
+  \item La facilidad de comprension no garantiza automaticamente la calidad del software \cite{tesis_espe}.
+\end{itemize}
+
+\section*{Ejemplo de Codigo:}
+
+A continuacion se muestra un ejemplo de un script sencillo en Python que ilustra como el estilo de codificacion puede influir en la facilidad de comprension:
+
+\begin{lstlisting}[language=Python, caption=Ejemplo de script en Python para calcular el area de un circulo]
+# Funcion para calcular el area de un circulo
+def calcular_area_circulo(radio):
+    area = 3.14159 * radio ** 2
+    return area
+
+# Programa principal
+if __name__ == "__main__":
+    r = float(input("Ingrese el radio del circulo: "))
+    area_circulo = calcular_area_circulo(r)
+    print(f"El area del circulo con radio {r} es: {area_circulo}")
+\end{lstlisting}
+
+En este ejemplo, el codigo esta estructurado de manera clara y utiliza nombres de variables descriptivos y comentarios adecuados, lo cual facilita su comprension y mantenimiento.
+
+\section*{Ejemplo de Metrica:}
+
+A continuacion se muestra un ejemplo de como se podria calcular el numero de lineas de codigo y el numero de lineas comentadas en un script sencillo en Python:
+
+\begin{lstlisting}[language=Python, caption=Ejemplo de calculo del numero de lineas de codigo y lineas comentadas en Python]
+# Funcion para contar lineas de codigo y lineas comentadas en un archivo
+def contar_lineas_codigo_y_comentarios(archivo):
+    with open(archivo, 'r') as file:
+        lineas = file.readlines()
+    num_lineas = len(lineas)
+    num_comentarios = sum(1 for linea in lineas if linea.strip().startswith('#'))
+    return num_lineas, num_comentarios
+
+# Programa principal
+if __name__ == "__main__":
+    archivo_ejemplo = 'codigo_ejemplo.py'
+    num_lineas, num_comentarios = contar_lineas_codigo_y_comentarios(archivo_ejemplo)
+    print(f"El archivo '{archivo_ejemplo}' tiene {num_lineas} lineas de codigo y {num_comentarios} lineas comentadas.")
+\end{lstlisting}
+
+En este ejemplo, la funcion \lstinline{contar_lineas_codigo_y_comentarios} calcula tanto el numero de lineas de codigo como el numero de lineas comentadas en un archivo especificado. Esto es util para evaluar la complejidad y la facilidad de comprension del codigo basandose en estas metricas especificas.
+
+\begin{thebibliography}{99}
+\bibitem{tesis_unal} Titulo: ``Influencia del uso de recomendaciones de legibilidad en la facilidad de comprension en codigo fuente''. Disponible en: \url{https://repositorio.unal.edu.co/bitstream/handle/unal/75524/Tesis%20Oct%202019%20v1.pdf}
+\bibitem{libro_metrics} ``Software Metrics: A Rigorous and Practical Approach''. Disponible en: \url{https://sedici.unlp.edu.ar/bitstream/handle/10915/19748/Documento_completo.pdf?sequence=1}
+\bibitem{tesis_espoch} Titulo: ``diseño e implentacion de una aplicacion web que permita el analisis de la facillidad de comprension en duagramas UML de inracciona traves de una replica experimental y sintesis de estudios previos''. Disponible en: \url{https://repositorio.espe.edu.ec/bitstream/21000/12434/2/ESPEL-MAS-0028-P.pdf}
+\bibitem{tesis_espe} ``Comprension de Programas''. Disponible en: \url{https://repositorio.espe.edu.ec/bitstream/21000/12434/2/ESPEL-MAS-0028-P.pdf}
+\end{thebibliography}
+
+\end{document}
